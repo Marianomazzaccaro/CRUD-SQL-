@@ -1,0 +1,45 @@
+
+<%- include('header')-%>
+
+<h1><%= peliculas.title %> </h1>
+
+
+<ul>
+    <li>
+        Duracion: <%= peliculas.length %> 
+    </li>
+
+    <li>
+        Fecha de Estreno: <%= peliculas.release_date %> 
+    </li>
+    <li>
+        Premios: <%= peliculas.awards %> 
+    </li>
+    <li>
+        Genero: <%= peliculas.genero.name %> 
+    </li>
+    <li>
+        Actores
+        <ul>
+            <% for( let i = 0; i < peliculas.actores.length; i++ ) { %>
+
+                <li>
+                    <%= peliculas.actores[i].first_name %>  <%= peliculas.actores[i].last_name %> 
+                </li>
+            
+            <% } %>
+        </ul>
+    </li>
+</ul>
+
+<a href="/peliculas/editar/<%= peliculas.id %> ">
+
+    <button>Editar</button>
+</a>
+<form action="/peliculas/borrar/<%= peliculas.id %>" method="POST">
+
+    <button type ='submit'>Borrar</button>
+</form> 
+
+
+<%- include('footer')-%>
